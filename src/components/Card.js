@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 
-const Card = ({ message }) => {
+const Card = ({ message, position, update }) => {
 	const [newMessage, setNewMessage] = useState("")
 
 	const handleChange = (e) => setNewMessage(e.target.value)
+
+	const handleClick = () => update(newMessage, position)
 
 
 	return (
@@ -19,7 +21,11 @@ const Card = ({ message }) => {
 			</p>
 			<input onChange={handleChange} placeholder='change name' />
 
-		</div>
+			<button onClick={handleClick}>
+				Change Message
+			</button>
+
+		</div >
 	)
 }
 
